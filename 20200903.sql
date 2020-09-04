@@ -87,3 +87,16 @@ WHERE mem_name LIKE '%이%';
 SELECT empno, ename, job, mgr, hiredate, sal, comm, deptno
 FROM emp
 WHERE comm IS NOT NULL;
+
+질문 -> 이름이 '모'로 끝나거나, 이름에 '이'가 들어가있는 사람만 출력
+SELECT mem_id, mem_name
+FROM member
+WHERE mem_name LIKE '%모' OR mem_name LIKE '%이%';
+
+SELECT mem_id, mem_name
+FROM member
+WHERE REGEXP_LIKE (mem_name , '이|[%모]');
+
+SELECT empno, ename, job, mgr, hiredate, sal, comm, deptno
+FROM emp
+WHERE job = 'SALESMAN' OR empno LIKE 78%;
